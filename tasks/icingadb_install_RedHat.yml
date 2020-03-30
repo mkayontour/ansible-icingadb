@@ -1,0 +1,18 @@
+---
+- name: Add icinga testing repository
+  yum_repository:
+    name: icinga-testing-builds
+    description: ICINGA (testing builds for epel)
+    baseurl: http://packages.icinga.com/epel/$releasever/testing/
+    gpgcheck: yes
+    gpgkey: https://packages.icinga.com/icinga.key
+    metadata_expire: "86400"
+
+- name: install packages
+  yum:
+    name: "{{ icingadb_packages }}"
+    state: present
+  vars:
+    icingadb_packages:
+      - icingadb
+      - icingadb-redis

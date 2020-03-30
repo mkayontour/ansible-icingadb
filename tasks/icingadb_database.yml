@@ -1,0 +1,7 @@
+---
+- name: Import schema for icingadb
+  mysql_db:
+    state: import
+    name: "{{ icingadb_db_name }}"
+    target: "{{ icingadb_db_schema }}"
+  ignore_errors: yes

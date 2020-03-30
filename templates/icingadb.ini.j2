@@ -1,0 +1,25 @@
+[redis]
+host={{ icingadb_redis_host }}
+port={{ icingadb_redis_port }}
+{% if icingadb_redis_pool_size %}
+pool_size={{ icingadb_redis_pool_size }}
+{% endif %}
+
+[mysql]
+host={{ icingadb_mysql_host }}
+port={{ icingadb_mysql_port }}
+database={{ icingadb_mysql_database }}
+user={{ icingadb_mysql_user }}
+password={{ icingadb_mysql_password }}
+max_open_conns={{ icingadb_mysql_max_open_conns }}
+
+[logging]
+level={{ icingadb_logging_level }}
+
+[metrics]
+{% if icingadb_metrics_host %}
+host={{ icingadb_metrics_host }}
+{% endif %}
+{% if icingadb_metrics_port %}
+port={{ icingadb_metrics_port }}
+{% endif %}

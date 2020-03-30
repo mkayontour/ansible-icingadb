@@ -1,0 +1,27 @@
+---
+- name: Include OS specific vars
+  include_vars: "{{ ansible_os_family }}.yml"
+  tags:
+    - config
+
+- name: Include OS specific installation
+  include_tasks: "icingadb_install_{{ ansible_os_family }}.yml"
+
+- name: Include Tasks to configure Database Backend
+  include_tasks: icingadb_database.yml
+
+- name: Include Tasks to configure IcingaDB
+  include_tasks: icingadb_config.yml
+
+
+- name: start and enable service
+  service:
+    name: icingadb
+    state: started
+    enabled: yes
+
+- name: start end enable icingadb-redis
+  service:
+    name: icingadb-redis
+    state: started
+    enabled: yes
