@@ -12,6 +12,56 @@ icingadb_logging_level: info
 icingadb_redis_config_dir: /etc/icinga-redis
 icingadb_redis_user: icinga-redis
 icingadb_redis_group: icinga-redis
+icingadb_redis_pool_size: 64
+icingadb_metrics_host: false
+icingadb_metrics_port: false
 icingadb_user: icingadb
 icingadb_group: icingadb
 icingadb_config_dir: /etc/icingadb
+
+
+## IcingaDB Redis Conf
+icingadb_redis_protected_mode: yes
+icingadb_redis_binds:
+  - "127.0.0.1"
+  - "::1"
+icingadb_redis_tcp_backlog: 511
+icingadb_redis_timeout: 0
+icingadb_redis_tcp_keepalive: 300
+icingadb_redis_supervised: systemd
+icingadb_redis_pidfile: /var/run/icinga-redis/icingadb-redis-server.pid
+icingadb_redis_loglevel: notice
+icingadb_redis_logfile: /var/log/icinga-redis/icingadb-redis-server.log
+icingadb_redis_databases: 16
+icingadb_redis_always_show_logo: yes
+icingadb_redis_save:
+  - 900 1
+  - 300 10
+  - 60 10000
+icingadb_redis_stop_writes_on_bgsave_error: yes
+icingadb_redis_rdbcompression: yes
+icingadb_redis_rdbchecksum: yes
+icingadb_redis_dbfilename: dump.rdb
+icingadb_redis_dir: /var/lib/icinga-redis/icingadb-redis
+icingadb_redis_replica_serve_stale_data: yes
+icingadb_redis_replica_read_only: yes
+icingadb_redis_repl_diskless_sync: no
+icingadb_redis_repl_diskless_sync_delay: 5
+icingadb_redis_repl_disable_tcp_nodelay: no
+icingadb_redis_replica_priority: 100
+icingadb_redis_lazyfree_lazy_eviction: no
+icingadb_redis_lazyfree_lazy_expire: no
+icingadb_redis_lazyfree_lazy_server_del: no
+icingadb_redis_lazy_flush: no
+icingadb_redis_appendonly: no
+icingadb_redis_appendfilename: appendonly.aof
+icingadb_redis_appendfsync: everysec
+icingadb_redis_no_appendfsync_on_rewrite: no
+icingadb_redis_auto_aof_rewrite_percentage: 100
+icingadb_redis_auto_aof_rewrite_min_size: 64mb
+icingadb_redis_aof_load_truncated: yes
+icingadb_redis_aof_use_rdb_preamble: yes
+icingadb_redis_lua_time_limit: 5000
+icingadb_slowlog_log_slower_than: 10000
+icingadb_slowlog_max_len: 128
+icingadb_redis_latency_monitor_threshold: 0
