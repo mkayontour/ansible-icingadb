@@ -1,2 +1,4 @@
 ---
 icingadb_db_schema: /usr/share/icingadb/schema/mysql/mysql.schema.sql
+icingadb_redis_service_name: icingadb-redis
+icingadb_service_name: icingadb

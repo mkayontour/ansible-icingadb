@@ -6,6 +6,7 @@
     owner: "{{ icingadb_user }}"
     group: "{{ icingadb_group }}"
     mode: 0640
+  notify: icingadb-reload
 
 - name: write configuration to /etc/icinga-redis/icinga-redis.conf
   template:
@@ -14,3 +15,4 @@
     owner: "{{ icingadb_redis_user }}"
     group: "{{ icingadb_redis_group }}"
     mode: 0640
+  notify: icingadb-redis-restart

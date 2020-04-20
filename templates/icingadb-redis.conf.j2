@@ -1,11 +1,11 @@
-{{ ansible_managed }}
+# {{ ansible_managed }}
 
 bind {% for host in icingadb_redis_binds %}
 {{ host }}
 {%- if not loop.last %} {% endif %}
 {% endfor %}
 
-protected-mode {{ icingadb_redis_protected_mode }}
+protected-mode {{ icingadb_redis_protected_mode | string }}
 port {{ icingadb_redis_port }}
 tcp-backlog {{ icingadb_redis_tcp_backlog }}
 timeout {{ icingadb_redis_timeout }}
@@ -180,15 +180,16 @@ hll-sparse-max-bytes 3000
 stream-node-max-bytes 4096
 stream-node-max-entries 100
 activerehashing yes
-client-output-buffer-limit normal 0 0 0
-client-output-buffer-limit replica 256mb 64mb 60
-client-output-buffer-limit pubsub 32mb 8mb 60
+
+{% for buff in icingadb_redis_client_output_buffer_limits %}
+client-output-buffer-limit {{ buff }}
+{% endfor %}
 # client-query-buffer-limit 1gb
 # proto-max-bulk-len 512mb
-hz 10
-dynamic-hz yes
-aof-rewrite-incremental-fsync yes
-rdb-save-incremental-fsync yes
+hz {{ icingadb_redis_hz }}
+dynamic-hz {{ icingadb_redis_dynamic_hz }}
+aof-rewrite-incremental-fsync {{ icingadb_redis_aof_rewrite_incremental_fsync }}
+rdb-save-incremental-fsync {{ icingadb_redis_rdb_save_incremental_fsync }}
 # lfu-log-factor 10
 # lfu-decay-time 1
 
