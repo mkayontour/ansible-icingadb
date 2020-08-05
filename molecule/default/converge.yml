@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include ansible-icingadb"
+      include_role:
+        name: "mkayontour.icingadb"
