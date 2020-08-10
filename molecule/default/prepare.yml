@@ -1,0 +1,20 @@
+---
+- name: prepare container
+  hosts: all
+  gather_facts: true
+  vars:
+    mysql_enabled_on_startup: yes
+    mysql_databases:
+      - name: icingadb
+      - name: icinga
+    mysql_users:
+      - name: icinga
+        password: icinga
+        priv: "icinga.*:ALL"
+        state: present
+      - name: icingadb
+        password: icingadb
+        priv: "icingadb.*:ALL"
+        state: present
+  roles:
+    - mysql

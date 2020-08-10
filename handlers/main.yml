@@ -4,7 +4,7 @@
     name: "{{ icingadb_redis_service_name }}"
     state: restarted
 
-- name: icingadb-reload
+- name: icingadb-restart
   service:
     name: "{{ icingadb_service_name }}"
-    state: reloaded
+    state: restarted

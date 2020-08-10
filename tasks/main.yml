@@ -19,6 +19,7 @@
     name: icingadb
     state: started
     enabled: yes
+  
 
 - name: start end enable icingadb-redis
   service:
