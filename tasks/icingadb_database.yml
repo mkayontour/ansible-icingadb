@@ -5,4 +5,4 @@
     name: "{{ icingadb_db_name }}"
     target: "{{ icingadb_db_schema }}"
   ignore_errors: yes
-  when: icingadb_import_schema
+  when: icingadb_import_mysql_schema
