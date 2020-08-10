@@ -1,5 +1,5 @@
 ---
-- name: Add icinga testing repository
+- name: RedHat - Add icinga testing repository
   yum_repository:
     name: icinga-testing-builds
     description: ICINGA (testing builds for epel)
@@ -7,8 +7,9 @@
     gpgcheck: yes
     gpgkey: https://packages.icinga.com/icinga.key
     metadata_expire: "86400"
+  when: icingadb_manage_repository
 
-- name: install packages
+- name: RedHat - install icingadb packages
   yum:
     name: "{{ icingadb_packages }}"
     state: present
