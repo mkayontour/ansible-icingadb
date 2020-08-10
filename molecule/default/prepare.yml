@@ -16,5 +16,15 @@
         password: icingadb
         priv: "icingadb.*:ALL"
         state: present
+  tasks:
+    - name: apt update
+      apt:
+        name: "{{ item }}"
+        update_cache: yes
+        state: present
+      loop:
+        - gnupg
+      when: ( ansible_os_family == "Debian" and ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "18" ) or
+            ( ansible_os_family == "Debian" and ansible_distribution_major_version == "10" )
   roles:
     - mysql

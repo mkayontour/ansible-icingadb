@@ -1,0 +1,6 @@
+---
+icingadb_apt_url: "deb http://packages.icinga.com/debian icinga-{{ ansible_distribution_release }}-testing main"
+icingadb_apt_key: http://packages.icinga.com/icinga.key
+icingadb_db_schema: /usr/share/icingadb/schema/mysql/mysql.schema.sql
+icingadb_redis_service_name: icingadb-redis
+icingadb_service_name: icingadb

@@ -1,0 +1,30 @@
+---
+- name: Debian - Install apt-transport-https
+  become: yes
+  apt:
+    name: apt-transport-https
+    update_cache: yes
+    state: present
+  when: icingadb_manage_repository
+
+- name: Debian - Add IcingaDB repository key
+  become: yes
+  apt_key:
+    url: "{{ icingadb_apt_key }}"
+    state: present
+  when: icingadb_manage_repository and icingadb_apt_key
+
+- name: Debian - Add IcingaDB repository
+  become: yes
+  apt_repository:
+    repo: "{{ icingadb_apt_url }}"
+    state: present
+  when: icingadb_manage_repository
+
+- name: Debian - Install IcingaDB packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - icingadb
+    - icingadb-redis
