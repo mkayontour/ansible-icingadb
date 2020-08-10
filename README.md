@@ -1,5 +1,9 @@
 ## Ansible Icinga DB
 
+This role install and configures the Icinga DB for Icinga 2. The Icinga DB support is available in v2.12.0 of Icinga 2.
+
+TODO: Documentation needs to be more speific. Not only the variables plain. 
+
 ### Variables:
 
 #### Defaults:
