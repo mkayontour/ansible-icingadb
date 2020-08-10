@@ -4,6 +4,7 @@
 
 #### Defaults:
 ```
+icingadb_manage_repository: true
 icingadb_import_mysql_schema: false
 icingadb_db_name: icingadb
 icingadb_redis_host: 127.0.0.1
